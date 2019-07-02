@@ -29,7 +29,7 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 1. [General Rules](#general-rules)
 1. [Naming conventions](#naming-conventions)
    - [Variables, Placeholders, Mixins, Functions & SASS Maps Naming of Foreground and Background color variables]()
-   - [Classes]
+   - [Classes](#Classes)
 1. [Syntax & Formatting](#Syntax-Formatting)
 
    - [Numeric-Values]
@@ -210,8 +210,7 @@ $color: #fff;
 $color: rgba(255, 255, 255, 1);
 $color: hsla(360, 100%, 100%, 1);
 
-```scsscolorvariablesshouldonlybeusedwithinthecolorpaletteandvariablesfiles
-/* bad */
+```scsscolorvariablesshouldonlybeusedwithinthecolorpaletteandvariablesfiles/* bad */
 // \_color-palette.scss
 $white: #fff;
 $black: #000;
