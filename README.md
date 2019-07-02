@@ -85,6 +85,8 @@ Examples of semantic HTML tags include <nav>, <footer> and <section>. There are 
 
 The following HTML5 tags can be used in the place of <div> tags to break your page content into identified parts each of which fulfills a specific role. As you can imagine, machines like Google and Bing LOVE this.
 
+![Screenshot](semantic-markup.png)
+
 ### Document Structure
 
 - **header: A container to be used for a web page header which typically contains the site logo, heading elements, and site navigation.**
@@ -96,8 +98,6 @@ The following HTML5 tags can be used in the place of <div> tags to break your pa
 - **article: The article element is used to identify a block of content suitable for reuse and syndication in other settings, such as a blog post or technical article.**
 - **figure: The figure element is used to group together a piece of content, such as an image, chart, graph, or text, and a caption marked off by figcaption tags. By nesting the caption and the content between figure tags a relationship between the nested elements is identified. Our images page contains more information about implementing this helpful tag.**
 - **ul: Unordered lists are used to signal a relationship between the items on the list and to indicate that they do not need to be understood in a specific order. Read our Lists Tutorial to learn more about how to use both ordered and unordered lists.**
-- **headlines align:The <h1>, <h2>, <h3>, <h4>, <h5>, and <h6> elements are used to create headings in descending order of importance where <h1> is the most important and <h6> the least.**
-
 - **progress:The <progress> element is used to create a progress bar to serve as a visual demonstration of progress towards the completion of task or goal. The max and value attributes are used to define how much progress (value) has been made towards task completion (max).**
 - **output:The <output> element is used to display the result of a calculation. The <output> element is typically used in conjunction with a parent <form> and sibling <input> elements to perform a calculation. The actual calculation is typically completed using JavaScript.**
 - **menuitem:The <menuitem> element is used to add menu items and commands to contextual pop-up menus (the menus that appear when you right-click in a web browser).**
