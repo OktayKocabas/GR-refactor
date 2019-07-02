@@ -171,7 +171,8 @@ Use semantic variable names example: {block}-{element}-{modifier}. When styling 
 
 ## Syntax & Formatting
 
-#Numeric Values
+### Numeric Values
+
 Trailing zeros (0) should be omitted. However, leading zeros (0) help readability and should be added.
 
 ```scss
@@ -185,7 +186,8 @@ $size: 0.25rem;
 $padding: 0;
 ```
 
-#String Values
+### String Values
+
 Should always be quoted using double quotes. URLs should also be quoted.
 
 ```scss
@@ -198,7 +200,8 @@ $direction: "left";
 background-image: url("example.png");
 ```
 
-#Colors
+### Colors
+
 Colors should be expressed RGB, HSL or hexadecimal in a lowercase and shortened form. Color keywords are to be avoided.
 
 ````scss
@@ -234,7 +237,8 @@ button {
 }
 ````
 
-#Bangs: !default, !global, !optional
+### Bangs: !default, !global, !optional
+
 Bangs must always be preceded by a space
 
 ```scss
@@ -248,7 +252,8 @@ $example: #fff !default;
 $example: #fff;
 ```
 
-#Shorthand
+### Shorthand
+
 Use short hand properties when available. They help code readability and decrease the number of lines in a file.
 
 ```scss
@@ -261,7 +266,8 @@ padding-left: 5px;
 padding: 10px 5px;
 ```
 
-#Group Shared Styles
+### Group Shared Styles
+
 Group selectors and classes that share the same code.
 
 ```scss
@@ -289,7 +295,8 @@ Group selectors and classes that share the same code.
 }
 ```
 
-#Pseudo Classes & Pseudo Elements
+### Pseudo Classes & Pseudo Elements
+
 Notice the double colon notation - ::after versus :after
 The double colon replaced the single-colon notation for pseudo-elements in CSS3. This was an attempt from W3C to distinguish between pseudo classes and pseudo elements.
 
@@ -316,7 +323,8 @@ a {
 }
 ```
 
-#Ampersand: &
+### Ampersand: &
+
 The ampersand "&" is an extremely useful feature, It is one of most powerful features in SASS. It can be a nice time-saver when you know how to use it, or a bit of a time-waster when you're struggling and could have written the same code in regular CSS.
 
 ```scss
@@ -371,7 +379,8 @@ div {
 }
 ```
 
-#One Line, One Selector
+### One Line, One Selector
+
 One selector per line, One rule per line.
 
 ```scss
@@ -407,7 +416,8 @@ h6 {
 }
 ```
 
-#Unnecessary Nesting & Selectors
+### Unnecessary Nesting & Selectors
+
 Unnecessary nesting and selectors must be avoided as this will make it harder to override propeties and increase the file size of your CSS.
 
 ```scss
@@ -460,7 +470,8 @@ ul.example1 {
 }
 ```
 
-#Imports: @import
+### Imports: @import
+
 @Import is used to import partial files.This is a great way to modularise your SASS.
 Always explicitly add imports of the required stuff such as Mixins, Variables and Color Palettes and not import them globally to improve code readability and intellisense. Leading underscore must be omitted.
 
@@ -471,7 +482,7 @@ Always explicitly add imports of the required stuff such as Mixins, Variables an
 @import "variables";
 ```
 
-#Interpolation: #{}
+### Interpolation: #{}
 
 ```scss
 /* bad */
@@ -482,7 +493,7 @@ $direction: "left";
 @warn "Direction: #{$direction}";
 ```
 
-#Statements & Expressions: @ if, @each, @for...
+### Statements & Expressions: @ if, @each, @for...
 
 ```scss
 /* bad */
@@ -527,7 +538,7 @@ Group properties by type following the pattern "Positioning" , "Display & Box Mo
 }
 ```
 
-#Ordering Extends,Imports,Selectors etc...
+### Ordering Extends,Imports,Selectors etc...
 
 Knowing that at the beginning that a class or selector inherits a set of rules from somewhere else good and also beneficial and these style can also be overridden. Follow this ordering pattern:
 
@@ -588,13 +599,19 @@ Knowing that at the beginning that a class or selector inherits a set of rules f
 }
 ```
 
-##Mixins,Placeholders & Functions
-#Mixins
+## Mixins,Placeholders & Functions
+
+### Mixins
+
 Mixins are a great way to include sections of code multiple times within a site. However, including a mixin is the same as copying and pasting the styles throughout the CSS file. It creates a mass of duplicate code and can bloat your CSS file. Thus, It should only be used if an argument is present, to quickly create modified styles.
 Use SASS Maps as arguments when passing CSS related options to avoid having breaking changes and be more scale able.
-#Placeholders
+
+### Placeholders
+
 Unlike mixins, placeholders can be used multiple times without adding any duplicate code. This makes them a much friendlier option for outputting DRY CSS. Functions.
-#Functions
+
+### Functions
+
 A function does not output any CSS. Instead, it returns a value that can be used in the SASS. This is useful for calculations that will be made throughout the site.
 
 ```scss
