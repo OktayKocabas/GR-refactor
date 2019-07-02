@@ -210,7 +210,7 @@ $color: #fff;
 $color: rgba(255, 255, 255, 1);
 $color: hsla(360, 100%, 100%, 1);
 
-```scsscolorvariablesshouldonlybeusedwithinthecolorpaletteandvariables files
+```scsscolorvariablesshouldonlybeusedwithinthecolorpaletteandvariablesfiles
 /* bad */
 // \_color-palette.scss
 $white: #fff;
@@ -410,7 +410,7 @@ h6 {
 #Unnecessary Nesting & Selectors
 Unnecessary nesting and selectors must be avoided as this will make it harder to override propeties and increase the file size of your CSS.
 
-````scss
+```scss
 /* bad */
 .example1 {
   ul {
@@ -458,81 +458,6 @@ ul.example1 {
     margin: 0;
   }
 }
-
-```
-
-**[⬆ back to top](#table-of-contents)**
-
----
-
-## Naming conventions
-
-- Use lowercase when declaring html elements
-
-  ```css
-  // bad
-  html,
-  body {
-  font-size: 100%;
-}
-
-// good
-html,
-body {
-  font-size: 100%;
-}
-````
-
-- Use lowercase words separated by hyphens (dashes) when naming your selectors.
-
-  ```css
-  // bad
-  .alertSuccess {
-    color: lawngreen;
-  }
-
-  // bad
-  .alert_success {
-    color: lawngreen;
-  }
-
-  // good
-  .alert-success {
-    color: lawngreen;
-  }
-  ```
-
-- Avoid abbrevations. Be descriptive with your naming.
-
-  ```css
-  // bad
-  .alrtscs {
-    color: limegreen;
-  }
-
-  // good
-  .alert-success {
-    color: limegreen;
-  }
-  ```
-
-#Mixin Parameters & SASS Maps
-Separation of mixins parameters and SASS Maps would keep the code more readable and merge conflicts easily.
-
-```scss
-/* bad */
-
-@include mixin-example(
-    (
-      bg-color: #000,
-      text-color: #fff
-    )
-  ) /* good */ @include mixin-example(
-    (
-      bg-color: #000,
-      text-color: #fff
-    )
-  );
 ```
 
 #Imports: @import
