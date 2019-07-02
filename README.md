@@ -4,20 +4,6 @@
 
 ### All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
-&nbsp;
-
-> ### "Arguments over style are pointless. There should be a style guide, and you should follow it"
->
-> _Rebecca_ _Murphey_
-
-&nbsp;
-
-> ### "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
->
-> _Idan_ _Gazit_
-
----
-
 ## General tips
 
 - Your job is to write code that is easy to read, understand and maintain.
@@ -27,20 +13,6 @@
 - Refrain from using _over-qualified selectors_, `div.container` can simply be stated as `.container`
 - Avoid the use of `!important`. This might be okay for state differentiation (`.checked`, `.unchecked`), but it's best to avoid it altogether.
 - Don't over engineer CSS.
-
-If you find yourself writing CSS/Sass rules that require a PhD degree to comprehend initally, you may be doing it wrong. Think about having classes for specific styles instead. For example, maybe the following rule above should have its own class. Don't over complicate just because it's possible, be sensible.
-
-```css
-.my-class[data="2"] {
-    &:not(:first-child):not(:empty) {
-        width: $gap / 2 + $padding * 0.25rem;
-    }
-}
-
-^ no.
-```
-
----
 
 # Preface
 
@@ -55,8 +27,6 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 ## Table of contents
 
 1. [General Rules](#general-rules)
-   - [Protocol](#protocol)
-1. [Whitespace](#whitespace)
 1. [Naming conventions](#naming-conventions)
 1. [Rulesets](#rulesets)
    - [Sass format rules](#sass-format-rules)
@@ -76,20 +46,52 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 
 ## General Rules
 
-### Protocol
+1. Limit nesting up to 3 levels.
+2. Don't use ID's #.
+3. Don't use !important.
+4. Don't use vendor prefixes.
+5. Have a plan for class name naming.
+6. Use tabs as indentation.
+7. One selector per line, One rule per line.
+8. Order your SASS (@extend, @include, Properties, Pseudo Classes and Pseudo Elements, Nestled Selectors).
+9. List related properties together.
+10. Modularise CSS/SASS for Maintainability.
+11. Trailing zeros (0) should be omitted. However, leading zeros (0) help readability and should be added.
+12. A zero (0) length should not have a unit.
+13. Colors should be expressed RGB, HSL or hexadecimal in a lowercase and shortened form. Color keywords are to be avoided.
+14. Strings values should be quoted using double quotes.URLs should also be quoted.
+15. Use extend on %placeholders primarily, not on actual selectors.
+16. Keep in mind that sometimes KISS is better than DRY.
+17. Use shorthand properties
 
-Omit the protocol portion (http:, https:) from URLs pointing to images and other media files, style sheets, and scripts unless the respective files are not available over both protocols. Omitting the protocol—which makes the URL relative—prevents mixed content issues and results in minor file size savings.
+## Naming Conventions
 
-```css
+Lower case hyphen - delimited strings, with BEM-like naming for more complex pieces of code.
+
+- **Variables, Placeholders, Mixins, Functions & SASS Maps**
+
+Use semantic variable names {block}-{element}-{property}-{state} Ex: betslip-icon-size-hover
+
+```scss
 /* bad */
-.logo {
-  background: url(http://www.tropicanacasino.com/images/logo.png);
-}
+$color: #fff;
+$linkColor: #fff;
+$color-link: #fff;
+
+$active-color-link: #fff;
+
+$nav-link-color-active: #fff;
+
+$white: #fff; // This instance is only acceptable in the color palette
 
 /* good */
-.logo {
-  background: url(//www.tropicanacasino.com/images/logo.png);
-}
+$link-color: #fff;
+
+$link-text-color-active: #fff;
+
+$nav-link-text-color-active: #fff;
+
+$primary-color: #fff;
 ```
 
 **[⬆ back to top](#table-of-contents)**
