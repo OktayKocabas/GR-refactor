@@ -85,7 +85,7 @@ Examples of semantic HTML tags include <nav>, <footer> and <section>. There are 
 
 The following HTML5 tags can be used in the place of <div> tags to break your page content into identified parts each of which fulfills a specific role. As you can imagine, machines like Google and Bing LOVE this.
 
-![Screenshot](semantic-markup.png)
+![Screenshot](semantic-markup.png=200x200)
 
 ### Document Structure
 
