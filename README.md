@@ -35,15 +35,15 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
    - [Numeric-Values](#Numeric-Values)
    - [String-Values](#String-Values)
    - [Colors](#Colors)
-   - [Bangs:!default,!global,!optional-Shorthand](#Bangs)
+   - [Bangs](#Bangs)
    - [Group-Shared-Styles](#Group-Shared-Styles)
-   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes,Pseudo-Elements-Ampersand:&)
-   - [One-Line,One-Selector](#One-Line,One-Selector)
-   - [Unnecessary-Nesting,Selectors](#Unnecessary-Nesting,Selectors)
+   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes-Pseudo-Elements-Ampersand)
+   - [One-Line,One-Selector](#One-Line-One-Selector)
+   - [Unnecessary-Nesting,Selectors](#Unnecessary-Nesting-Selectors)
    - [Mixin-Parameters,SASS-Maps](#Mixin-Parameters,SASS-Maps)
-   - [Imports:@import](#Imports)
-   - [Interpolation:#{}](#Interpolation)
-   - [Statements,Expressions:@if,@each,@for...](#Statements,Expressions)
+   - [Imports](#Imports)
+   - [Interpolation](#Interpolation)
+   - [Statements,Expressions](#Statements,Expressions)
 
 1. [Ordering-Grouping](#Ordering-Grouping)
    - [Ordering,Extends,Imports,Selectors,etc...](#Ordering,Extends,Imports,Selectors)
@@ -237,9 +237,9 @@ button {
 }
 ````
 
-### Bangs: !default, !global, !optional
+### Bangs
 
-Bangs must always be preceded by a space
+Bangs!default, !global, !optional, must always be preceded by a space
 
 ```scss
 /* bad */
