@@ -27,6 +27,7 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 ## Table of contents
 
 1. [General Rules](#general-rules)
+1. [Semantic-HTML](#Semantic-HTML)
 1. [Naming conventions](#naming-conventions)
    - [Variables, Placeholders, Mixins, Functions & SASS Maps Naming of Foreground and Background color variables]()
    - [Classes](#Classes)
@@ -52,6 +53,7 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
    - [Mixins](#Mixins)
    - [Placeholders](#Placeholders)
    - [Functions](#Functions)
+1. [Styled Components Tips](#Styled-Components-Tips)
 
 ---
 
@@ -74,6 +76,51 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 15. Use extend on %placeholders primarily, not on actual selectors.
 16. Keep in mind that sometimes KISS is better than DRY.
 17. Use shorthand properties
+
+## Semantic-HTML
+
+### What does it look like?
+
+Examples of semantic HTML tags include <nav>, <footer> and <section>. There are many more semantic HTML5 tags that can be used (for example <blockquote> and <em>), but in this article I am only looking at those semantic HTML tags that you will need to divide the page content into its basic parts.
+
+The following HTML5 tags can be used in the place of <div> tags to break your page content into identified parts each of which fulfills a specific role. As you can imagine, machines like Google and Bing LOVE this.
+
+### Document Structure
+
+- **header: A container to be used for a web page header which typically contains the site logo, heading elements, and site navigation.**
+- **footer: A container to be used for a web page footer which typically contains authorship, contact, and copyright information in addition to navigational links and a link back to the top of the web page.**
+- **main: A high-level element used to contain all of the content that is unique to a single web page and not repeated across multiple web pages.**
+- **nav: An element to contain blocks of site navigation links. This element is typically placed in the page header and footer, and may also be used in an aside (sidebar) element as well.**
+- **section: The section element is used to mark off sections of a document, such as chapters or major sections of a long form post.And used to group together related elements. Each <section> typically includes one or more heading elements and additional elements presenting related content.**
+- **aside: Use to identify content that is related to the main content on the page but not part of the primary flow of the document. For example, the aside element may contain a glossary definition of a term that appears in a blog post or it may contain advertisements related to the contents of the page.**
+- **article: The article element is used to identify a block of content suitable for reuse and syndication in other settings, such as a blog post or technical article.**
+- **figure: The figure element is used to group together a piece of content, such as an image, chart, graph, or text, and a caption marked off by figcaption tags. By nesting the caption and the content between figure tags a relationship between the nested elements is identified. Our images page contains more information about implementing this helpful tag.**
+- **ul: Unordered lists are used to signal a relationship between the items on the list and to indicate that they do not need to be understood in a specific order. Read our Lists Tutorial to learn more about how to use both ordered and unordered lists.**
+- **headlines align:The <h1>, <h2>, <h3>, <h4>, <h5>, and <h6> elements are used to create headings in descending order of importance where <h1> is the most important and <h6> the least.**
+
+- **progress:The <progress> element is used to create a progress bar to serve as a visual demonstration of progress towards the completion of task or goal. The max and value attributes are used to define how much progress (value) has been made towards task completion (max).**
+- **output:The <output> element is used to display the result of a calculation. The <output> element is typically used in conjunction with a parent <form> and sibling <input> elements to perform a calculation. The actual calculation is typically completed using JavaScript.**
+- **menuitem:The <menuitem> element is used to add menu items and commands to contextual pop-up menus (the menus that appear when you right-click in a web browser).**
+- **abbr:The <abbr> element is used along with a title attribute to associate a full-text explanation with an abbreviation or acronym. Website visitors do not see the text in the title attribute, but browsers, search engines, and assistive technologies do use this information.**
+- **menu: The <menu> element defines an instance of a menu. This experimental HTML feature has very limited browser support, but may soon be an effective way to add menu items to context menus and to create interactive web application menus.**
+- **strong: HTML Tag The <strong> element is used to identify text that is of greater importance than the surrounding text. By default, all browsers render <strong> text in a bold typeface.**
+- **address: This attribute is used to associate contact information with the parent element that contains the address element. For example, when added to an article, the address element provides contact information for the article author, and when added to a web page footer the address identifies contact information for the web page owner.**
+
+Read more: https://html.com/semantic-markup/#ixzz5sWxowywI
+
+```HTML
+<header>
+<nav>
+<main>
+<article>
+<section>
+<aside>
+<footer>
+
+```
+
+- **Reminder of Good Semantic HTML5 Markup for SEO**
+  Structure, importance, roles, and hierarchy are things that humans often understand instinctively from the design/layout. Correctly using the correct semantic HTML tags in the place of <div> simply makes that same understanding easier for machines.
 
 ## Naming Conventions
 
@@ -602,6 +649,10 @@ Knowing that at the beginning that a class or selector inherits a set of rules f
 }
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
+---
+
 ## Mixins,Placeholders & Functions
 
 ### Mixins
@@ -749,3 +800,231 @@ A function does not output any CSS. Instead, it returns a value that can be used
 ```
 
 **[⬆ back to top](#table-of-contents)**
+
+---
+
+## Styled Components
+
+### Styled Component Tips
+
+Styled Components make React, React Native learning experiences great because it doesn’t feel like another language (css, sass), it still feels like Javascript. New comers can still wrap their head around their Javascript knowledge while creating stylesheet. For them it’s not another language, it is just a styling text that reside in Javascript. They don’t have to learn the “css way” and “javascript way”.
+
+- **Auto-Prefixing**
+
+it automatically add prefixes to your css
+
+```scss
+display: flex;
+flex-direction: row;
+
+//automatically becomes
+
+-ms-flex: 1;
+flex: 1 1;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-direction: row;
+flex-direction: row;
+```
+
+- **Attrs**
+
+Don’t forget you still have the ‘attrs’, and it’s can be passed down from your props.
+
+```js
+const InputText = styled.input.attrs({
+  type: "text",
+  placeholder: props => props.placeholder || "Please fill"
+})`
+  padding: 6px 12px;
+`;
+```
+
+- **Can be used styled component with any css frameworks**
+
+With attrs, you can obviously use className attribute, thus converting existing css framework to styled component is a breeze.
+
+```js
+const Button = styled.button.attrs({
+  className: "btn btn-primary"
+})``;
+// With some dynamic props
+const Button = styled.button.attrs({
+  className: `btn btn-primary btn-${props => props.size || "medium"}`
+})``;
+<Button size="small" />;
+```
+
+- **withComponent**
+
+You can switch component around, let’s say button to a with “withComponent”. It’s handy for some situation.
+
+```js
+const PrimaryButton = styled.button`
+  background-color: blue;
+`;
+
+const PrimaryLink = PrimaryButton.withComponent("a");
+```
+
+- **Built in theme context api**
+
+```js
+import styled, { ThemeProvider } from "styled-components";
+const theme = {
+  primaryColor: "salmon",
+  fontFamily: "Bebas"
+};
+
+const Button = styled.button`
+  background: ${props => props.theme.primaryColor}
+  font-family: ${props => props.theme.fontFamily}
+`;
+
+<ThemeProvider theme={theme}>
+  <Button />
+
+  {/* Or you can override */}
+  <Button theme={{ primaryColor: "green" }} />
+</ThemeProvider>;
+```
+
+- **Compositions & Mixins pattern**
+
+There are many ways to do a composition. It is fairly easy with existing css helper or polished package, or you can write your own function as well.
+Psss. There is
+
+```js
+import { css } from "styled-components";
+
+const boxShadowMixin = css`
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+`;
+
+const boxShadowMixinFunc = (top, left, blur, color, inset = false) => {
+  return `box-shadow: ${
+    inset ? "inset" : ""
+  } ${top}px ${left}px ${blur}px ${color};`;
+};
+
+const StyledComp = styled.div`
+  ${boxShadowMixin}
+  ${boxShadowMixinFunc(0, 0, 4, "rgba(0, 0, 0, 0.5)")}
+`;
+```
+
+- **Override existing-inline style**
+
+Just in case of occasion arise and you need to override some style. The repeated & will bump generated className for each &.
+
+```js
+const MyStyledBox = styled(AlreadyStyledComponent)`
+  &&& {
+    color: palevioletred;
+    font-weight: bold;
+  }
+`;
+// Became
+.MyBox.MyBox.MyBox {
+  color: palevioletred;
+  font-weight: bold;
+}
+// Override Inline style
+const MyStyledComponent = styled(InlineStyledComponent)`
+  &[style] {
+    font-size: 12px !important;
+    color: blue !important;
+  }
+`;
+
+```
+
+### Best Practices
+
+#### Extracting often used variables
+
+One of the holy grails while developing a large application is to perform principle (DRY). Usually, in a stylesheet, we repeat colour values, font sizes, margins etc. Can you imagine the scenario when someone decided to redesign your application and you didn’t extract often used values? Hundreds of places to change. It would be a nightmare. In regular CSS we can create variables by using var() function. But if you have to support old browsers you cannot depend only on CSS. You will need preprocessors like SASS or LESS, PostCSS or different solution. Styled-components is a JavaScript library so you can just use normal JS variables to extract particular values. You can split these values into several files, like in the example below:
+
+```js
+|-- styles/
+       |-- colors.js
+       |-- breakpoints.js
+       |-- spaces.js
+       |-- fonts.js
+       |-- mixins.js
+```
+
+Inside them, we can export variables in a standard way as we export a regular JSON object:
+
+- colors.js file:
+
+```js
+export default {
+  grey1: "#e5e6e6",
+  grey2: "#fafafa",
+  grey3: "#41464e",
+  white: "#fff"
+};
+```
+
+Later, you can import these values for styling buttons, paragraphs etc.
+
+```js
+import styled from "styled-components";
+import colors from "../../colors";
+
+const StyledButton = styled.button`
+  color: ${colors.white};
+  text-align: center;
+`;
+```
+
+#### Reducing the size of styles
+
+Minification of CSS can be a crucial thing in large codebases. Reducing the size of CSS files is absolutely important in these environments which have a limited Internet connection. In normal CSS we can realise compression of styles by using for example plugin for Webpack or for other module bundlers. In styled-components minification is enabled by default so you don’t have to worry about it. But if there is a need to change this default behaviour you can turn it off with the babel-plugin-styled-components package. This plugin has to be installed manually:
+
+```s
+yarn add --dev babel-plugin-styled-components
+```
+
+And included in the .babelrc file or package.json with the false value for “minify” property like in the example below:
+
+```js
+"babel": {
+  "plugins": [
+    ["babel-plugin-styled-components", { "minify": false }]
+  ]
+}
+```
+
+- **There is one thing that we have to remember. Styled-components can’t extract CSS styles into a separate file. So, the result of minification (or dead code elimination) will be visible in a proper <style> tag.**
+
+#### Adding useful global styles
+
+Styles which are scoped to concrete components are very desirable nowadays. We don’t want to break the rest of the page while working on a particular component. However, sometimes there is a need to add something globally like a declaration of font-faces or resetting box-sizing property for every component. This is pretty easy in a traditional approach because it is the true nature of CSS in being global. Like working with Normalize.css in styled-components, we can achieve that by using the createGlobalStyle function. You can set the box-sizing property for every element on the page like in the example below:
+
+```js
+import React, { Fragment } from "react";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+ html {
+   box-sizing: border-box;
+}
+
+ *,
+ *::before,
+ *::after {
+   box-sizing: inherit;
+}
+`;
+
+const App = () => (
+  <Fragment>
+    <GlobalStyles />
+    <header>Test app</header>
+  </Fragment>
+);
+
+export default App;
+```
