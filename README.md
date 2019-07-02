@@ -37,17 +37,18 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
    - [Colors](#Colors)
    - [Bangs](#Bangs)
    - [Group-Shared-Styles](#Group-Shared-Styles)
-   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes-Pseudo-Elements-Ampersand)
-   - [One-Line,One-Selector](#One-Line-One-Selector)
-   - [Unnecessary-Nesting,Selectors](#Unnecessary-Nesting-Selectors)
-   - [Mixin-Parameters,SASS-Maps](#Mixin-Parameters,SASS-Maps)
+   - [Pseudo Classes & Pseudo Elements](#Pseudo-Classes-&-Pseudo-Elements)
+   - [Ampersand](#Ampersand)
+   - [One-Line-&-One-Selector](#One-Line-&-One-Selector)
+   - [Unnecessary Nesting & Selectors](#Unnecessary-Nesting-&-Selectors)
+   - [Mixin-Parameters & SASS-Maps](#Mixin-Parameters-&-SASS-Maps)
    - [Imports](#Imports)
    - [Interpolation](#Interpolation)
-   - [Statements,Expressions](#Statements,Expressions)
+   - [Statements & Expressions](#Statements-&-Expressions)
 
 1. [Ordering-Grouping](#Ordering-Grouping)
-   - [Ordering,Extends,Imports,Selectors,etc...](#Ordering,Extends,Imports,Selectors)
-1. [Mixins,Placeholders,Functions](#Mixins,Placeholders,Functions)
+   - [Ordering Extends & Imports & Selectors](#Ordering-Extends-&-Imports-&-Selectors)
+1. [Mixins & Placeholders & Functions](#Mixins-&-Placeholders-&-Functions)
    - [Mixins](#Mixins)
    - [Placeholders](#Placeholders)
    - [Functions](#Functions)
@@ -323,7 +324,7 @@ a {
 }
 ```
 
-### Ampersand: &
+### Ampersand
 
 The ampersand "&" is an extremely useful feature, It is one of most powerful features in SASS. It can be a nice time-saver when you know how to use it, or a bit of a time-waster when you're struggling and could have written the same code in regular CSS.
 
@@ -379,7 +380,7 @@ div {
 }
 ```
 
-### One Line,One Selector
+### One Line & One Selector
 
 One selector per line, One rule per line.
 
@@ -470,7 +471,7 @@ ul.example1 {
 }
 ```
 
-### Imports: @import
+### Imports
 
 @Import is used to import partial files.This is a great way to modularise your SASS.
 Always explicitly add imports of the required stuff such as Mixins, Variables and Color Palettes and not import them globally to improve code readability and intellisense. Leading underscore must be omitted.
@@ -482,7 +483,9 @@ Always explicitly add imports of the required stuff such as Mixins, Variables an
 @import "variables";
 ```
 
-### Interpolation: #{}
+### Interpolation
+
+interpolation : #{}
 
 ```scss
 /* bad */
@@ -493,7 +496,7 @@ $direction: "left";
 @warn "Direction: #{$direction}";
 ```
 
-### Statements & Expressions: @ if, @each, @for...
+### Statements & Expressions
 
 ```scss
 /* bad */
@@ -538,7 +541,7 @@ Group properties by type following the pattern "Positioning" , "Display & Box Mo
 }
 ```
 
-### Ordering Extends,Imports,Selectors etc...
+### Ordering Extends & Imports & Selectors
 
 Knowing that at the beginning that a class or selector inherits a set of rules from somewhere else good and also beneficial and these style can also be overridden. Follow this ordering pattern:
 
