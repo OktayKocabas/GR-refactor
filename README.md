@@ -32,25 +32,25 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
    - [Classes](#Classes)
 1. [Syntax & Formatting](#Syntax-Formatting)
 
-   - [Numeric-Values]
-   - [String-Values]
-   - [Colors]
-   - [Bangs:!default,!global,!optional-Shorthand]
-   - [Group-Shared-Styles]
-   - [Pseudo-Classes,Pseudo-Elements-Ampersand] : &
-   - [One-Line,One-Selector]
-   - [Unnecessary-Nesting,Selectors]
-   - [Mixin-Parameters,SASS-Maps]
-   - [Imports:@import]
-   - [Interpolation:#{}]
-   - [Statements,Expressions:@if,@each,@for...]
+   - [Numeric-Values](#Numeric-Values)
+   - [String-Values](#String-Values)
+   - [Colors](#Colors)
+   - [Bangs:!default,!global,!optional-Shorthand](#Bangs)
+   - [Group-Shared-Styles](#Group-Shared-Styles)
+   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes)
+   - [One-Line,One-Selector](#One-Line,One-Selector)
+   - [Unnecessary-Nesting,Selectors](#Unnecessary-Nesting,Selectors)
+   - [Mixin-Parameters,SASS-Maps](#Mixin-Parameters,SASS-Maps)
+   - [Imports:@import](#Imports)
+   - [Interpolation:#{}](#Interpolation)
+   - [Statements,Expressions:@if,@each,@for...](#Statements,Expressions)
 
 1. [Ordering-Grouping](#Ordering-Grouping)
-   - [OrderingExtends,Imports,Selectors,etc...]
-1. [Mixins,Placeholders,Functions]
-   - [Mixins]
-   - [Placeholders]
-   - [Functions]
+   - [Ordering,Extends,Imports,Selectors,etc...](#Ordering,Extends,Imports,Selectors)
+1. [Mixins,Placeholders,Functions](#Mixins,Placeholders,Functions)
+   - [Mixins](#Mixins)
+   - [Placeholders](#Placeholders)
+   - [Functions](#Functions)
 
 ---
 
