@@ -37,7 +37,7 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
    - [Colors](#Colors)
    - [Bangs:!default,!global,!optional-Shorthand](#Bangs)
    - [Group-Shared-Styles](#Group-Shared-Styles)
-   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes)
+   - [Pseudo-Classes,Pseudo-Elements-Ampersand:&](#Pseudo-Classes,Pseudo-Elements-Ampersand:&)
    - [One-Line,One-Selector](#One-Line,One-Selector)
    - [Unnecessary-Nesting,Selectors](#Unnecessary-Nesting,Selectors)
    - [Mixin-Parameters,SASS-Maps](#Mixin-Parameters,SASS-Maps)
@@ -379,7 +379,7 @@ div {
 }
 ```
 
-### One Line, One Selector
+### One Line,One Selector
 
 One selector per line, One rule per line.
 
