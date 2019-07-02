@@ -78,7 +78,7 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 
 Lower case hyphen - delimited strings, with BEM-like naming for more complex pieces of code.
 
-#Variables, Placeholders, Mixins, Functions & SASS Maps
+###Variables, Placeholders, Mixins, Functions & SASS Maps
 
 Use semantic variable names {block}-{element}-{property}-{state} Ex: betslip-icon-size-hover
 
@@ -147,7 +147,7 @@ $button-settings: (
 );
 ````
 
-#Classes
+###Classes
 Use semantic variable names example: {block}-{element}-{modifier}. When styling directly the element is not possible.
 
 ````scss
