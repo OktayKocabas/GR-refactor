@@ -3,7 +3,7 @@
 ## General tips
 
 - Your job is to write code that is easy to read, understand and maintain.
-- Quality over Quantity. It's easy to write a lot of messy CSS. It's a nightmare to maintain it.
+- Quality over Quantity. It's a nightmare to maintain it.
 - Write your code starting from Concrete level to Interface level . Folow KISS (Keep Simple, Stupid) Concept
 - Avoid duplication of functions , definitions , objects etc. Follow DRY (Dont Repeat Yourself) Concept
 
@@ -11,8 +11,9 @@
 
 1. [General Rules](#general-rules)
 1. [Naming Conventions](#Naming-Conventions)
-1. [Syntax & Formatting](#Syntax-&-Formatting)
+1. [JS Syntax & Formatting](#JS-Syntax-&-Formatting)
     - [Commas](#commas)
+    - [Whitespace](#whitespace)
     - [Semicolons](#semicolons)
     - [Type Casting & Coercion](#type-casting--coercion)
     - [Objects](#Objects)
@@ -20,30 +21,32 @@
     - [Destructuring](#Destructuring)
     - [Functions](#Functions)
     - [Modules](#Modules)
-    - [Whitespace](#whitespace)
 
 1. [JSX](#JSX)
-
+    - [Syntax & Formatting](#Syntax-&-Formatting)
+   
 1. [HOOKS](#HOOKS)
 ---
 
 ## General Rules
 
-1. Semicolons ARE required.Every statement must be terminated with a semicolon. Relying on      automatic semicolon insertion is forbidden.
-2. Don't use Iuse var anymore.
-3. Arrow functions are preferred.Prefer arrow functions over the function keyword, particularly for nested functions.
-4. Use template strings instead of concatenation.
-5. Have a plan for class/component/property naming.
-6. Don’t use line continuations for long strings.
-7. One Logic per Functions.
-8. Do not use eval or the Function(...string) constructor (except for code loaders). These features are potentially dangerous and simply do not work in CSP environments.
-9. List related properties together.
-10. Modularise for Maintainability.
-12. “for… of” is the preferred type of ‘for loop’.
-13. Constants should be named in ALL_UPPERCASE separated by underscores.
-14. Use single quotes, not double quotes.
-16. Keep in mind that sometimes KISS is better than DRY.
-17. Use shorthand properties
+- Semicolons are required.Every statement must be terminated with a semicolon. Relying on      automatic semicolon insertion is forbidden.
+- Don't use Iuse var anymore.
+- Arrow functions are preferred.Prefer arrow functions over the function keyword, particularly for nested functions.
+- Use template strings instead of concatenation.
+- Use Property destructuring
+- Split render elements into readable helper function()
+- Use the meaningful name for variables
+- Define proptypes
+- Separate lifecycle, methods and render Elements in the component
+- Don’t use line continuations for long strings.
+- One Logic per Functions.
+- Do not use eval or the Function(...string) constructor (except for code loaders). These features are potentially dangerous and simply do not work in CSP environments.
+- List related properties together.
+- Modularise for Maintainability.
+- “for… of” is the preferred type of ‘for loop’.
+- Keep in mind that sometimes KISS is better than DRY.
+
 
 ## Naming Conventions
 
@@ -253,7 +256,7 @@ function setDate(val){
 
 
 **[⬆ back to top](#table-of-contents)**
-## Syntax-Formatting
+## JS Syntax-Formatting
 
 ### Objects
 - **Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.**
@@ -414,6 +417,26 @@ const baz = [...foo].map(bar);
 // good
 const baz = Array.from(foo, bar);
 ```
+
+- **Use Array.includes instead of Array.indexOf to check if an array contains a value or not**
+If you’re looking for something in your Array, use Array.indexOf.
+Array.indexOf “returns the first index at which a given element can be found,” says the MDN documentation. So, if we use the returned index later in our code, and Array.indexOf is the solution.
+
+But, what if we only need to know if our array contains a value or not? Seems like a yes/no question, a boolean question I would say. For this case, I recommend using Array.includes which returns a boolean.
+
+- **Use Array.some instead of Array.find whether an array contains a value or not.**
+This is very similar to Array.indexOf/Array.includes.In the previous case, we saw Array.find requires a callback as an argument and returns an element. Is Array.find the best solution if we need to know whether our array contains a value or not? Probably not, because it returns a value, not a boolean.
+
+For this case, using Array.some which returns the needed boolean is better. Also, semantically, using Array.some highlights the fact that we don’t need the found item.
+
+- **Use Array.reduce instead of chaining Array.filter and Array.map.**
+If we run Array.filter, then Array.map the first time to filter and create a shorter array, the second time to create a new array (again!) containing new values based on the ones we obtained from Array.filter. To get our new array, we used two Array methods. Each method has its own callback function and an array that we cannot use later — the one created by Array.filter.
+
+To avoid low performances on this subject, advice is to use Array.reduce instead. Same result, better code! Array.reduce allows us to filter and add the satisfying items into an accumulator.
+
+In our case, since we’ve been using Array.map, using Array.reduce with an array to concat as an accumulator.
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Destructuring
@@ -603,6 +626,7 @@ new Date(...[2016, 8, 5]);
 **[⬆ back to top](#table-of-contents)**
 
 ### Modules
+
 - **Do not use wildcard imports.**
 This makes sure you have a single default export.
 
@@ -626,4 +650,234 @@ export { es6 as default } from './GamesysGuide';
 import { es6 } from './GamesysGuide';
 export default es6;
 ```
+**[⬆ back to top](#table-of-contents)**
+
+## JSX
+
+### Syntax & Formatting
+ - **Always use double quotes (") for JSX attributes, but single quotes (') for all other JS. eslint: jsx-quotes.**
+```js
+// bad
+<Foo bar='bar' />
+// good
+<Foo bar="bar" />
+// bad
+<Foo style={{ left: "20px" }} />
+// good
+<Foo style={{ left: '20px' }} />
+```
+- **Always include a single space in your self-closing tag. eslint: no-multi-spaces, react/jsx-tag-spacing**
+```js
+// bad
+<Foo/>
+// very bad
+<Foo                 />
+// bad
+<Foo
+ />
+// good
+<Foo />
+```
+- **Do pad JSX curly braces with spaces. eslint: react/jsx-curly-spacing**
+```js
+    // bad
+<Foo bar={baz} />
+
+// good
+<Foo bar={ baz } />
+```
+- **Always use camelCase for prop names.**
+```js
+// bad
+<Foo
+  UserName="hello"
+  phone_number={12345678}
+/>
+
+// good
+<Foo
+  userName="hello"
+  phoneNumber={12345678}
+/>
+```
+- **Omit the value of the prop when it is explicitly true. eslint: react/jsx-boolean-value.**
+```js
+// bad
+<Foo
+  hidden={true}
+/>
+
+// good
+<Foo
+  hidden
+/>
+
+// good
+<Foo hidden />
+```
+
+- **Always include an alt prop on <img> tags. If the image is presentational, alt can be an empty string or the <img> must have role="presentation". eslint: jsx-a11y/alt-text.**
+
+```js
+// bad
+<img src="gamesys.jpg" />
+
+// good
+<img src="gamesys.jpg" alt="welcome to gamesys" />
+
+// good
+<img src="gamesys.jpg" alt="" />
+
+// good
+<img src="gamesys.jpg" role="presentation" />
+```
+
+- **Avoid using an array index as key prop, prefer a stable ID. eslint: react/no-array-index-key.**
+Not using a stable ID is an anti-pattern because it can negatively impact performance and cause issues with component state.
+
+Not recommend using indexes for keys if the order of items may change.
+
+```js
+// bad
+{todos.map((todo, index) =>
+  <Todo
+    {...todo}
+    key={index}
+  />
+)}
+
+// good
+{todos.map(todo => (
+  <Todo
+    {...todo}
+    key={todo.id}
+  />
+))}
+```
+
+- **Spreading objects with known, explicit props. This can be particularly useful when testing React components with Mocha’s beforeEach construct.**
+
+```js
+export default function Foo {
+  const props = {
+    text: '',
+    isPublished: false
+  }
+
+  return (<div {...props} />);
+}
+```
+
+- **Notes for use: Filter out unnecessary props when possible. Also, use prop-types-exact to help prevent bugs.**
+
+```js
+// bad
+render() {
+  const { irrelevantProp, ...relevantProps } = this.props;
+  return <WrappedComponent {...this.props} />
+}
+
+// good
+render() {
+  const { irrelevantProp, ...relevantProps } = this.props;
+  return <WrappedComponent {...relevantProps} />
+}
+```
+
+- **Always use ref callbacks. eslint: react/no-string-refs.**
+
+```js
+// bad
+<Foo
+  ref="myRef"
+/>
+
+// good
+<Foo
+  ref={(ref) => { this.myRef = ref; }}
+/>
+```
+
+- **Always self-close tags that have no children. eslint: react/self-closing-comp.**
+
+```js
+// bad
+<Foo variant="stuff"></Foo>
+
+// good
+<Foo variant="stuff" />
+```
+
+- **If your component has multi-line properties, close its tag on a new line. eslint: react/jsx-closing-bracket-location.**
+
+```js
+// bad
+<Foo
+  bar="bar"
+  baz="baz" />
+
+// good
+<Foo
+  bar="bar"
+  baz="baz"
+/>
+```
+
+- **Bind event handlers for the render method in the constructor. eslint: react/jsx-no-bind.**
+A bind call in the render path creates a brand new function on every single render. Do not use arrow functions in class fields, because it makes them [challenging to test and debug, and can negatively impact performance](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1), and because conceptually, class fields are for data, not logic.
+```js
+// bad
+class extends React.Component {
+  onClickDiv() {
+    // do stuff
+  }
+
+  render() {
+    return <div onClick={this.onClickDiv.bind(this)} />;
+  }
+}
+
+// very bad
+class extends React.Component {
+  onClickDiv = () => {
+    // do stuff
+  }
+
+  render() {
+    return <div onClick={this.onClickDiv} />
+  }
+}
+
+// good
+class extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickDiv = this.onClickDiv.bind(this);
+  }
+
+  onClickDiv() {
+    // do stuff
+  }
+
+  render() {
+    return <div onClick={this.onClickDiv} />;
+  }
+}
+```
+
+- **Be sure to return a value in your `render` methods. eslint: react/require-render-return.**
+
+    ```jsx
+    // bad
+    render() {
+      (<div />);
+    }
+
+    // good
+    render() {
+      return (<div />);
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
