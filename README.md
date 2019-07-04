@@ -77,7 +77,8 @@ The following sections outline a _highly_ _opinionated_ style guide for **CSS de
 14. Strings values should be quoted using double quotes.URLs should also be quoted.
 15. Use extend on %placeholders primarily, not on actual selectors.
 16. Keep in mind that sometimes KISS is better than DRY.
-17. Use shorthand properties
+17. Use shorthand properties.
+18. Always follow html semantic elements.
 
 ## Semantic-HTML
 
@@ -102,10 +103,10 @@ The following HTML5 tags can be used in the place of <div> tags to break your pa
 - **ul: Unordered lists are used to signal a relationship between the items on the list and to indicate that they do not need to be understood in a specific order. Read our Lists Tutorial to learn more about how to use both ordered and unordered lists.**
 - **progress:The <progress> element is used to create a progress bar to serve as a visual demonstration of progress towards the completion of task or goal. The max and value attributes are used to define how much progress (value) has been made towards task completion (max).**
 - **output:The <output> element is used to display the result of a calculation. The <output> element is typically used in conjunction with a parent <form> and sibling <input> elements to perform a calculation. The actual calculation is typically completed using JavaScript.**
-- **menuitem:The <menuitem> element is used to add menu items and commands to contextual pop-up menus (the menus that appear when you right-click in a web browser).**
-- **abbr:The <abbr> element is used along with a title attribute to associate a full-text explanation with an abbreviation or acronym. Website visitors do not see the text in the title attribute, but browsers, search engines, and assistive technologies do use this information.**
-- **menu: The <menu> element defines an instance of a menu. This experimental HTML feature has very limited browser support, but may soon be an effective way to add menu items to context menus and to create interactive web application menus.**
-- **strong: HTML Tag The <strong> element is used to identify text that is of greater importance than the surrounding text. By default, all browsers render <strong> text in a bold typeface.**
+- **menuitem:The menuitem element is used to add menu items and commands to contextual pop-up menus (the menus that appear when you right-click in a web browser).**
+- **abbr:The abbr element is used along with a title attribute to associate a full-text explanation with an abbreviation or acronym. Website visitors do not see the text in the title attribute, but browsers, search engines, and assistive technologies do use this information.**
+- **menu: The menu element defines an instance of a menu. This experimental HTML feature has very limited browser support, but may soon be an effective way to add menu items to context menus and to create interactive web application menus.**
+- **strong: HTML Tag The strong element is used to identify text that is of greater importance than the surrounding text. By default, all browsers render strong text in a bold typeface.**
 - **address: This attribute is used to associate contact information with the parent element that contains the address element. For example, when added to an article, the address element provides contact information for the article author, and when added to a web page footer the address identifies contact information for the web page owner.**
 
 Read more: https://html.com/semantic-markup/#ixzz5sWxowywI
