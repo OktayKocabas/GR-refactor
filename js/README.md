@@ -1,4 +1,5 @@
 # Javascript/JSX Style Guide
+**CONSISTENCY IS GOOD!**
 
 ## General tips
 

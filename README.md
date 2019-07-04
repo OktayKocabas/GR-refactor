@@ -1,4 +1,6 @@
 # SCSS/CSS Style Guide
+**CONSISTENCY IS GOOD!**
+
 
 ##Preface
 
